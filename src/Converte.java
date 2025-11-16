@@ -17,15 +17,13 @@ public class Converte {
         Properties props = new Properties();
         try (FileInputStream fis = new FileInputStream("config.properties")) {
             props.load(fis);
-            // Retorna o valor associado à chave 'api.key'
+
             return props.getProperty("api.key");
 
         } catch (IOException e) {
-            // Este erro ocorre se o arquivo não for encontrado ou lido
-            System.err.println("\n🚨 ERRO: Não foi possível carregar o arquivo config.properties. Sua chave API não foi lida.");
+
+            System.err.println("\n ERRO: Não foi possível carregar o arquivo config.properties. Sua chave API não foi lida.");
             System.err.println("Por favor, crie o arquivo e certifique-se de que ele está no diretório correto.");
-            // Retorna uma chave de demonstração para que o programa não quebre completamente,
-            // mas a conversão provavelmente falhará com essa chave.
             return "CHAVE_DEMOSTRACAO_OU_VAZIA";
         }
     }
